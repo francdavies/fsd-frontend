@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import RecentActivity from "./components/Activity/RecentActivity";
 
 const Page = () => {
-  return (
-    <div>Page</div>
-  )
-}
+	return (
+		<div>
+			<h3>Page</h3>
 
-export default Page
+			<RecentActivity />
+		</div>
+	);
+};
+
+export default Page;
