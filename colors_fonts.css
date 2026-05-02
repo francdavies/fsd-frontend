@@ -1,0 +1,26 @@
+/*
+
+Colors:
+
+Primary: #1d4d3c
+Accent: #2d7a63
+Text: #111918
+Muted: #6b7f78
+Surface: #eef3f1
+Border: #dde8e3
+White: #ffffff
+
+Fonts:
+Inter -  for the Paragraphs, buttons, general text.
+
+Plus Jakarta Sans - for the Headings, titles, bold text
+
+
+You can import via the Google font CDN.
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+*/
