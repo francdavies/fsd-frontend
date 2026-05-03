@@ -36,36 +36,29 @@ const Dashboard = () => {
     <div
       ref={rootRef}
       style={{ fontFamily: "'Inter', sans-serif" }}
-      className="flex min-h-screen bg-[#eef3f1] text-[#111918] overflow-x-hidden"
+      className="flex flex-col md:flex-row min-h-screen bg-[#eef3f1] text-[#111918] overflow-x-hidden"
     >
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,600;0,700;0,800;1,700;1,800&family=Inter:wght@400;500;600&display=swap');
         .font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif; }
       `}</style>
  
-      {/* Sidebar */}
+      {/* Sidebar handles both mobile top bar + desktop sidebar */}
       <Sidebar />
  
       {/* Main Content */}
       <main className="flex-1 min-w-0 px-5 sm:px-8 lg:px-10 py-8 lg:py-10">
- 
-        {/* Header */}
         <div className="fade-up">
           <DashboardHeader />
         </div>
  
-        {/* Snapshot + Recent Activity side by side */}
         <div className="fade-up flex flex-col lg:flex-row gap-5" style={{ transitionDelay: "0.08s" }}>
-          {/* Community Snapshot — fixed width on desktop */}
           <div className="w-full lg:w-[280px] flex-shrink-0">
             <CommunitySnapshot />
           </div>
- 
-          {/* Recent Activity — grows to fill rest */}
           <RecentActivity />
         </div>
  
-        {/* Suggested For You */}
         <div className="fade-up" style={{ transitionDelay: "0.16s" }}>
           <SuggestedForYou />
         </div>
