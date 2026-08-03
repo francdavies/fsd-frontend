@@ -4,7 +4,7 @@ import AboutHero from "./AboutHero";
 import OurStory from "./OurStory";
 import OurValues from "./OurValues";
 import MeetTheTeam from "./MeetTheTeam";
-import AboutCTA from "./AboutCTA";
+import AboutCTA from "./AboutCta";
 import AboutFooter from "./AboutFooter";
 
 const AboutPage = () => {
