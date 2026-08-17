@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import ContactNav from "./ContactNav";
+import Navbar from "../../components/Navbar";
 import ContactMain from "./ContactMain";
 import ContactFooter from "./ContactFooter";
 
@@ -30,14 +30,9 @@ const ContactPage = () => {
   }, []);
 
   return (
-    <div
-      ref={rootRef}
-      className="bg-white text-[#111918] overflow-x-hidden font-sans"
-    >
-      <ContactNav />
-      <div className="fade-up">
-        <ContactMain />
-      </div>
+    <div ref={rootRef} className="bg-white text-[#111918] overflow-x-hidden font-sans">
+      <Navbar activePage="contact" />
+      <div className="fade-up"><ContactMain /></div>
       <ContactFooter />
     </div>
   );

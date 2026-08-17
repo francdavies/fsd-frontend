@@ -21,7 +21,6 @@ const SignInForm = () => {
   return (
     <div className="bg-white rounded-2xl shadow-sm px-10 py-12 w-full max-w-[420px] mx-auto">
 
-      {/* Heading */}
       <h1 className="font-jakarta text-[28px] font-bold text-[#1c5c47] tracking-[-0.5px] mb-2">
         Welcome Back
       </h1>
@@ -53,10 +52,7 @@ const SignInForm = () => {
             <label className="text-[13.5px] font-semibold text-[#111918]">
               Password
             </label>
-            <a
-              href="#"
-              className="text-[13px] font-semibold text-[#1c5c47] no-underline hover:underline"
-            >
+            <a href="#" className="text-[13px] font-semibold text-[#1c5c47] no-underline hover:underline">
               Forgot password?
             </a>
           </div>
@@ -67,11 +63,11 @@ const SignInForm = () => {
             onChange={handleChange}
             placeholder="••••••••••"
             required
-            className="w-full px-4 py-3.5 rounded-xl border border-[#dde8e3] bg-[#f4f7f6] text-[14px] text-[#111918] placeholder-[#b0bfba] outline-none focus:border-[#2d7a63] focus:bg-white transition-colors tracking-widest"
+            className="w-full px-4 py-3.5 rounded-xl border border-[#dde8e3] bg-[#f4f7f6] text-[14px] text-[#111918] placeholder-[#b0bfba] outline-none focus:border-[#2d7a63] focus:bg-white transition-colors"
           />
         </div>
 
-        {/* Keep me signed in */}
+        {/* Keep signed in */}
         <div className="flex items-center gap-2.5">
           <input
             type="checkbox"
@@ -81,10 +77,7 @@ const SignInForm = () => {
             onChange={handleChange}
             className="w-4 h-4 rounded border border-[#dde8e3] accent-[#1c5c47] cursor-pointer"
           />
-          <label
-            htmlFor="keepSignedIn"
-            className="text-[13.5px] text-[#3d4f49] cursor-pointer select-none"
-          >
+          <label htmlFor="keepSignedIn" className="text-[13.5px] text-[#3d4f49] cursor-pointer select-none">
             Keep me signed in
           </label>
         </div>
@@ -100,12 +93,9 @@ const SignInForm = () => {
         {/* Sign Up link */}
         <p className="text-[13.5px] text-[#6b7f78] text-center">
           Don't have an account?{" "}
-          <a
-            href="#"
-            className="font-semibold text-[#1c5c47] no-underline hover:underline"
-          >
+          <Link to="/SignUp" className="font-semibold text-[#1c5c47] no-underline hover:underline">
             Sign Up
-          </a>
+          </Link>
         </p>
       </form>
     </div>

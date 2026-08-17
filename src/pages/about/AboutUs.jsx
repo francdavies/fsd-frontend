@@ -1,13 +1,13 @@
 import React, { useEffect, useRef } from "react";
-import AboutNav from "./AboutNav";
+import Navbar from "../../components/Navbar";
 import AboutHero from "./AboutHero";
 import OurStory from "./OurStory";
 import OurValues from "./OurValues";
 import MeetTheTeam from "./MeetTheTeam";
-import AboutCTA from "./AboutCta";
+import AboutCTA from "./AboutCTA";
 import AboutFooter from "./AboutFooter";
 
-const AboutPage = () => {
+const AboutUs = () => {
   const rootRef = useRef(null);
 
   useEffect(() => {
@@ -34,35 +34,18 @@ const AboutPage = () => {
   }, []);
 
   return (
-    <div
-      ref={rootRef}
-      className="bg-white text-[#111918] overflow-x-hidden font-sans"
-    >
-      <AboutNav />
+    <div ref={rootRef} className="bg-white text-[#111918] overflow-x-hidden font-sans">
+      <Navbar activePage="about" />
 
-      <div className="fade-up">
-        <AboutHero />
-      </div>
-
-      <div className="fade-up" style={{ transitionDelay: "0.08s" }}>
-        <OurStory />
-      </div>
-
-      <div className="fade-up" style={{ transitionDelay: "0.08s" }}>
-        <OurValues />
-      </div>
-
-      <div className="fade-up" style={{ transitionDelay: "0.08s" }}>
-        <MeetTheTeam />
-      </div>
-
-      <div className="fade-up" style={{ transitionDelay: "0.08s" }}>
-        <AboutCTA />
-      </div>
+      <div className="fade-up"><AboutHero /></div>
+      <div className="fade-up" style={{ transitionDelay: "0.08s" }}><OurStory /></div>
+      <div className="fade-up" style={{ transitionDelay: "0.08s" }}><OurValues /></div>
+      <div className="fade-up" style={{ transitionDelay: "0.08s" }}><MeetTheTeam /></div>
+      <div className="fade-up" style={{ transitionDelay: "0.08s" }}><AboutCTA /></div>
 
       <AboutFooter />
     </div>
   );
 };
 
-export default AboutPage;
+export default AboutUs;
