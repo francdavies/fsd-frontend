@@ -1,6 +1,6 @@
 import React from "react";
 
-const AboutCta = () => {
+const AboutCTA = () => {
   return (
     <section className="px-5 sm:px-10 lg:px-16 py-10 bg-white">
       <div className="bg-[#1c5c47] rounded-[24px] px-8 sm:px-14 py-14 text-center">
@@ -23,4 +23,4 @@ const AboutCta = () => {
   );
 };
 
-export default AboutCta;
+export default AboutCTA;
