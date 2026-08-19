@@ -1,22 +1,46 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 const SignInForm = () => {
+  const navigate = useNavigate();
+  const { signIn } = useAuth();
+
   const [form, setForm] = useState({
     email: "",
     password: "",
     keepSignedIn: false,
   });
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setForm({ ...form, [name]: type === "checkbox" ? checked : value });
+    setError("");
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Authentication logic will be wired here
+    setError("");
+    setLoading(true);
+
+    const { error } = await signIn({
+      email: form.email,
+      password: form.password,
+    });
+
+    setLoading(false);
+
+    if (error) {
+      setError(error.message);
+    } else {
+      navigate("/Dashboard");
+    }
   };
+
+  const inputClass =
+    "w-full px-4 py-3.5 rounded-xl border border-[#dde8e3] bg-[#f4f7f6] text-[14px] text-[#111918] placeholder-[#b0bfba] outline-none focus:border-[#2d7a63] focus:bg-white transition-colors";
 
   return (
     <div className="bg-white rounded-2xl shadow-sm px-10 py-12 w-full max-w-[420px] mx-auto">
@@ -27,6 +51,13 @@ const SignInForm = () => {
       <p className="text-[14px] text-[#6b7f78] leading-relaxed mb-8">
         Access your community library and dashboard.
       </p>
+
+      {/* Error message */}
+      {error && (
+        <div className="bg-red-50 border border-red-200 text-red-700 text-[13px] rounded-xl px-4 py-3 mb-5">
+          {error}
+        </div>
+      )}
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-5">
 
@@ -42,7 +73,7 @@ const SignInForm = () => {
             onChange={handleChange}
             placeholder="name@example.com"
             required
-            className="w-full px-4 py-3.5 rounded-xl border border-[#dde8e3] bg-[#f4f7f6] text-[14px] text-[#111918] placeholder-[#b0bfba] outline-none focus:border-[#2d7a63] focus:bg-white transition-colors"
+            className={inputClass}
           />
         </div>
 
@@ -63,7 +94,7 @@ const SignInForm = () => {
             onChange={handleChange}
             placeholder="••••••••••"
             required
-            className="w-full px-4 py-3.5 rounded-xl border border-[#dde8e3] bg-[#f4f7f6] text-[14px] text-[#111918] placeholder-[#b0bfba] outline-none focus:border-[#2d7a63] focus:bg-white transition-colors"
+            className={inputClass}
           />
         </div>
 
@@ -85,9 +116,17 @@ const SignInForm = () => {
         {/* Sign In button */}
         <button
           type="submit"
-          className="w-full bg-[#1c5c47] text-white font-jakarta font-semibold text-[15px] py-4 rounded-full border-none cursor-pointer hover:bg-[#2a6b54] transition-colors mt-2"
+          disabled={loading}
+          className="w-full bg-[#1c5c47] text-white font-jakarta font-semibold text-[15px] py-4 rounded-full border-none cursor-pointer hover:bg-[#2a6b54] transition-colors mt-2 flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
         >
-          Sign In
+          {loading ? (
+            <>
+              <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+              Signing in...
+            </>
+          ) : (
+            "Sign In"
+          )}
         </button>
 
         {/* Sign Up link */}
