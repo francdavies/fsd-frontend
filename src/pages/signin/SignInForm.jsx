@@ -35,7 +35,7 @@ const SignInForm = () => {
     if (error) {
       setError(error.message);
     } else {
-      navigate("/Dashboard");
+      navigate("/CommunityFeed");
     }
   };
 

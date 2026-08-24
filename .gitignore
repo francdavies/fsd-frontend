@@ -92,6 +92,8 @@ web_modules/
 # dotenv environment variable files
 .env
 .env.*
+.env.local
+.env.*.local
 !.env.example
 
 # parcel-bundler cache (https://parceljs.org/)
@@ -161,3 +163,5 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+.vercel
+.env*

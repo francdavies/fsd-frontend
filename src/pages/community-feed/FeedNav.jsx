@@ -1,8 +1,15 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 const FeedNav = () => {
   const [search, setSearch] = useState("");
+  const { profile } = useAuth();
+  const navigate = useNavigate();
+
+  const initials = profile?.full_name
+    ? profile.full_name.charAt(0).toUpperCase()
+    : "U";
 
   return (
     <nav className="sticky top-0 z-50 bg-white border-b border-[#dde8e3] h-[58px] flex items-center px-5 sm:px-8 gap-4">
@@ -53,9 +60,17 @@ const FeedNav = () => {
           </svg>
         </button>
 
-        {/* Avatar */}
-        <button className="w-8 h-8 rounded-full bg-gradient-to-br from-[#c8906a] to-[#a06040] flex items-center justify-center text-white text-[12px] font-semibold cursor-pointer flex-shrink-0">
-          M
+        {/* Avatar — clicking navigates to Dashboard */}
+        <button
+          onClick={() => navigate("/Dashboard")}
+          className="w-8 h-8 rounded-full bg-gradient-to-br from-[#c8906a] to-[#a06040] flex items-center justify-center text-white text-[12px] font-semibold cursor-pointer flex-shrink-0 hover:ring-2 hover:ring-[#2d7a63] hover:ring-offset-1 transition-all flex-shrink-0 overflow-hidden"
+          title="Go to Dashboard"
+        >
+          {profile?.avatar_url ? (
+            <img src={profile.avatar_url} alt="avatar" className="w-full h-full object-cover" />
+          ) : (
+            initials
+          )}
         </button>
       </div>
     </nav>
